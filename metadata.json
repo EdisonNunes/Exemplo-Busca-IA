@@ -1,0 +1,5 @@
+{
+  "name": "EquipManual AI",
+  "description": "Encontre manuais de equipamentos instantaneamente informando o nome e o fabricante.",
+  "requestFramePermissions": []
+}
