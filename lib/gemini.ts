@@ -1,8 +1,9 @@
-import { GoogleGenAI, Type } from "@google/genai";
-
-const ai = new GoogleGenAI({ apiKey: process.env.NEXT_PUBLIC_GEMINI_API_KEY! });
+import { GoogleGenAI } from "@google/genai";
 
 export async function generateManual(equipment: string, manufacturer: string) {
+  const ai = new GoogleGenAI({ apiKey: process.env.NEXT_PUBLIC_GEMINI_API_KEY! });
+  
+  // Default to Gemini (Client-side)
   const model = ai.models.generateContent({
     model: "gemini-3-flash-preview",
     contents: `Gere informações técnicas detalhadas para o seguinte equipamento:

@@ -155,7 +155,7 @@ export default function ManualChat() {
                 <History className="w-5 h-5 text-indigo-600" />
                 Histórico
               </h2>
-              <div className="space-y-3 max-h-64 overflow-y-auto pr-2 custom-scrollbar">
+              <div className="space-y-3 max-h-64 overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-slate-200 scrollbar-track-transparent">
                 {history.map((item) => (
                   <button
                     key={item.id}
@@ -200,7 +200,18 @@ export default function ManualChat() {
                     </div>
                   </div>
                 </div>
-                <div className="p-8 md:p-10 prose prose-slate max-w-none prose-headings:text-indigo-900 prose-a:text-indigo-600 prose-strong:text-slate-900">
+                <div className="p-8 md:p-10 prose prose-slate max-w-none 
+                  prose-headings:text-indigo-900 prose-headings:font-bold prose-headings:tracking-tight
+                  prose-h1:text-3xl prose-h1:mt-8 prose-h1:mb-4 prose-h1:border-b prose-h1:border-slate-200 prose-h1:pb-2
+                  prose-h2:text-2xl prose-h2:mt-6 prose-h2:mb-3 prose-h2:text-indigo-900
+                  prose-h3:text-xl prose-h3:mt-5 prose-h3:mb-2
+                  prose-p:mb-4 prose-p:leading-relaxed
+                  prose-ul:mb-4 prose-ul:pl-6 prose-ol:mb-4 prose-ol:pl-6
+                  prose-li:mb-2
+                  prose-table:w-full prose-table:border-collapse prose-table:mb-6 prose-table:text-sm
+                  prose-th:bg-slate-50 prose-th:text-left prose-th:p-3 prose-th:border prose-th:border-slate-200 prose-th:font-semibold prose-th:text-slate-800
+                  prose-td:p-3 prose-td:border prose-td:border-slate-200 prose-td:text-slate-600
+                  prose-a:text-indigo-600 prose-strong:text-slate-900">
                   <div ref={scrollRef} />
                   <Markdown remarkPlugins={[remarkGfm]}>{currentManual.content}</Markdown>
                 </div>
@@ -223,34 +234,6 @@ export default function ManualChat() {
           </AnimatePresence>
         </div>
       </div>
-
-      <style jsx global>{`
-        .custom-scrollbar::-webkit-scrollbar {
-          width: 4px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-track {
-          background: transparent;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-          background: #e2e8f0;
-          border-radius: 10px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-          background: #cbd5e1;
-        }
-        
-        .prose h1 { font-size: 1.875rem; margin-top: 2rem; margin-bottom: 1rem; border-bottom: 1px solid #e2e8f0; padding-bottom: 0.5rem; }
-        .prose h2 { font-size: 1.5rem; margin-top: 1.5rem; margin-bottom: 0.75rem; color: #312e81; }
-        .prose h3 { font-size: 1.25rem; margin-top: 1.25rem; margin-bottom: 0.5rem; }
-        .prose p { margin-bottom: 1rem; line-height: 1.6; }
-        .prose ul, .prose ol { margin-bottom: 1rem; padding-left: 1.5rem; }
-        .prose li { margin-bottom: 0.5rem; }
-        
-        .prose table { width: 100%; border-collapse: collapse; margin-bottom: 1.5rem; font-size: 0.875rem; }
-        .prose th { background: #f8fafc; text-align: left; padding: 0.75rem; border: 1px solid #e2e8f0; font-weight: 600; color: #1e293b; }
-        .prose td { padding: 0.75rem; border: 1px solid #e2e8f0; color: #475569; }
-        .prose tr:nth-child(even) { background: #fcfcfd; }
-      `}</style>
     </div>
   );
 }
